@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política y Administración Educativas en España</title>
-    <style>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Actividades interactivas — Tema 2 (filtrado)</title><style>
         :root {
             --color-primary: #1E40AF;
             --color-secondary: #3B82F6;
@@ -628,461 +624,118 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-    </style>
-</head>
-<body>
-    <div class="presentation-container">
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-        
-        <div class="slide-container">
-            <!-- Slide 1: Title -->
-            <div class="slide active" id="slide1">
-                <img src="https://pplx-res.cloudinary.com/image/upload/v1756194055/pplx_project_search_images/7d97cbf7a103b562294c78c59f05c5108a83bf67.png" alt="Mapa de España" class="spain-map">
-                <h1>Tema 2: La Política y la Administración Educativas en España</h1>
-                <p class="subtitle">Bloque 2 - Legislación Educativa en España</p>
-                <p class="professor-info">Profesor: Miguel Ariza</p>
-                <p class="subtitle">Duración: 90 minutos</p>
-            </div>
+    
+/* Mejoras de accesibilidad y navegación */
+.slide[aria-hidden="true"]{display:none}
+.slide[aria-hidden="false"]{display:block}
+.navigation{position:fixed;left:0;right:0;bottom:0;display:flex;gap:.5rem;justify-content:space-between;align-items:center;background:#fff;border-top:1px solid var(--color-border);padding:.75rem 1rem;z-index:999}
+.kbd{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;background:var(--color-bg-light);border:1px solid var(--color-border);border-bottom-width:3px;border-radius:6px;padding:.1rem .35rem}
+.progress-bar{height:4px;background-color:var(--color-bg-light);position:relative}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));transition:width .25s ease;width:0%}
+@media print{.navigation,.progress-bar{display:none} .slide{display:block !important;page-break-after:always}}
 
-            <!-- Slide 2: Objectives -->
-            <div class="slide" id="slide2">
-                <h2>🎯 Objetivos del Tema</h2>
-                <div class="objectives-grid">
-                    <div class="objective-item">
-                        <span class="objective-icon">🎯</span>
-                        <h3>Diferenciación</h3>
-                        <p>Diferenciar política y administración educativa</p>
-                    </div>
-                    <div class="objective-item">
-                        <span class="objective-icon">🔍</span>
-                        <h3>Comprensión</h3>
-                        <p>Comprender la descentralización del sistema educativo</p>
-                    </div>
-                    <div class="objective-item">
-                        <span class="objective-icon">⚖️</span>
-                        <h3>Identificación</h3>
-                        <p>Identificar los niveles administrativos y órganos de coordinación</p>
-                    </div>
-                </div>
-            </div>
+/* Layout lateral para Actividad Grupal (slide8) */
+#slide8 .activity-layout{
+  display:flex;
+  gap:1rem;
+  align-items:flex-start;
+}
+#slide8 .activity-main{
+  flex:1 1 auto;
+  min-width:0;
+}
+#slide8 .activity-aside{
+  flex:0 0 240px;
+  max-width:240px;
+  position: sticky;
+  top: 1rem;
+  align-self:flex-start;
+  background: var(--color-bg-light);
+  border:1px solid var(--color-border);
+  border-radius:10px;
+  padding:0.75rem;
+}
+#slide8 .activity-aside .btn{
+  width:100%;
+  display:block;
+  margin-bottom:0.5rem;
+}
+/* En pantallas pequeñas, seguimos manteniendo el botón visible arriba */
+@media (max-width: 768px){
+  #slide8 .activity-layout{
+    flex-direction:column;
+  }
+  #slide8 .activity-aside{
+    position: sticky;
+    top: 0.5rem;
+    width:100%;
+    max-width:none;
+    order:-1;
+  }
+}
+</style></head><body><div class="presentation-container"><div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div><div id="slidesWrapper"><div aria-hidden="false" aria-roledescription="diapositiva" class="slide" id="slide4" role="group" tabindex="-1">
+<h2>💬 Pregunta de Activación</h2>
+<h3>¿Quién decide sobre el currículo, las becas o los horarios escolares?</h3>
+<div class="interactive-buttons">
+<button class="btn" onclick="showFeedback('Estado', '¡Correcto! El Estado fija las enseñanzas mínimas.')">Estado</button>
+<button class="btn" onclick="showFeedback('Comunidad Autónoma', '¡Exacto! Las CCAA desarrollan el currículo y gestionan becas.')">Comunidad Autónoma</button>
+<button class="btn" onclick="showFeedback('Municipio', 'Los municipios apoyan con actividades extraescolares.')">Municipio</button>
+<button class="btn" onclick="showFeedback('Centro', 'Los centros tienen autonomía organizativa para horarios.')">Centro</button>
+</div>
+<div class="feedback" id="activationFeedback"></div>
+</div><div aria-hidden="true" aria-roledescription="diapositiva" class="slide" id="slide8" role="group" tabindex="-1">
 
-            <!-- Slide 3: Context -->
-            <div class="slide" id="slide3">
-                <h2>🧭 Contexto del Sistema Educativo</h2>
-                <img src="https://pplx-res.cloudinary.com/image/upload/v1756194055/pplx_project_search_images/7d97cbf7a103b562294c78c59f05c5108a83bf67.png" alt="Mapa de España" style="width: 50%; margin: 2rem 0;">
-                <p style="font-size: 1.2rem; margin: 2rem 0; max-width: 800px; margin-left: auto; margin-right: auto;">España es un <strong>Estado social, democrático y descentralizado</strong>, donde la educación se gestiona a distintos niveles:</p>
-                <div class="admin-levels">
-                    <div class="level-card estado">
-                        <h3>🏛️ Estado</h3>
-                        <p>Normativa básica y garantías</p>
-                    </div>
-                    <div class="level-card ccaa">
-                        <h3>🏞️ Comunidades Autónomas</h3>
-                        <p>Desarrollo y gestión educativa</p>
-                    </div>
-                    <div class="level-card municipio">
-                        <h3>🏡 Municipios</h3>
-                        <p>Apoyo local y mantenimiento</p>
-                    </div>
-                    <div class="level-card centro">
-                        <h3>🏫 Centros Educativos</h3>
-                        <p>Autonomía pedagógica</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Slide 4: Activation Question -->
-            <div class="slide" id="slide4">
-                <h2>💬 Pregunta de Activación</h2>
-                <h3>¿Quién decide sobre el currículo, las becas o los horarios escolares?</h3>
-                <div class="interactive-buttons">
-                    <button class="btn" onclick="showFeedback('Estado', '¡Correcto! El Estado fija las enseñanzas mínimas.')">Estado</button>
-                    <button class="btn" onclick="showFeedback('Comunidad Autónoma', '¡Exacto! Las CCAA desarrollan el currículo y gestionan becas.')">Comunidad Autónoma</button>
-                    <button class="btn" onclick="showFeedback('Municipio', 'Los municipios apoyan con actividades extraescolares.')">Municipio</button>
-                    <button class="btn" onclick="showFeedback('Centro', 'Los centros tienen autonomía organizativa para horarios.')">Centro</button>
-                </div>
-                <div class="feedback" id="activationFeedback"></div>
-            </div>
 
-            <!-- Slide 5: Transition to Alina -->
-            <div class="slide" id="slide5">
-                <h2>🔄 Conoce el Caso de Alina</h2>
-                <img src="https://pplx-res.cloudinary.com/image/upload/v1760902183/pplx_project_search_images/ea63f6a44f223d8dbcc44d3c30c15bb5f5726d87.png" alt="Maestra en el aula" style="width: 60%; border-radius: 12px; margin: 2rem 0;">
-                <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto;">Conozcamos el caso de <strong>Alina</strong>, una maestra que quiere entender cómo funciona nuestro sistema educativo.</p>
-            </div>
 
-            <!-- Slide 6: Alina's Case -->
-            <div class="slide" id="slide6">
-                <h2>👩‍🏫 El Caso de Alina</h2>
-                <div style="background: var(--color-bg-light); padding: 2rem; border-radius: 12px; margin: 2rem 0; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto;">
-                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>Alina es maestra en un centro privado y quiere opositar para ser funcionaria.</strong></p>
-                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">❓ No sabe si debe hacerlo ante el Estado o su Comunidad Autónoma.</p>
-                    <p style="font-size: 1.1rem; color: var(--color-primary); font-weight: 600;">¿Qué le explicaríamos sobre la organización educativa en España?</p>
-                </div>
-            </div>
 
-            <!-- Slide 7: Initial Questions -->
-            <div class="slide" id="slide7">
-                <h2>❓ Preguntas Iniciales</h2>
-                <div class="bubbles-container">
-                    <div class="bubble">
-                        <h3>¿Qué es la política educativa?</h3>
-                    </div>
-                    <div class="bubble">
-                        <h3>¿Qué es la administración educativa?</h3>
-                    </div>
-                    <div class="bubble">
-                        <h3>¿Qué significa que España esté descentralizada?</h3>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 8: Drag and Drop Activity -->
-            <div class="slide" id="slide8">
-                <h2>🧩 Actividad Grupal</h2>
-                <h3>Clasifica estos aspectos según su nivel de decisión:</h3>
-                <div class="drag-drop-container">
-                    <div class="draggable-items">
-                        <h4>Aspectos a clasificar:</h4>
-                        <div class="draggable-item" draggable="true" data-correct="Estado">Currículo básico (60%)</div>
-                        <div class="draggable-item" draggable="true" data-correct="Estado">Homologación de títulos</div>
-                        <div class="draggable-item" draggable="true" data-correct="CCAA">Inspección educativa técnica</div>
-                        <div class="draggable-item" draggable="true" data-correct="CCAA">Desarrollo curricular (40%)</div>
-                        <div class="draggable-item" draggable="true" data-correct="Municipio">Mantenimiento de edificios escolares</div>
-                        <div class="draggable-item" draggable="true" data-correct="Municipio">Actividades extraescolares</div>
-                        <div class="draggable-item" draggable="true" data-correct="Centro">Proyecto Educativo del Centro</div>
-                        <div class="draggable-item" draggable="true" data-correct="Estado">Becas y ayudas al estudio</div>
-                    </div>
-                    <div class="drop-zones">
-                        <div class="drop-zone" data-level="Estado">
-                            <h4>🏛️ Estado</h4>
-                        </div>
-                        <div class="drop-zone" data-level="CCAA">
-                            <h4>🏞️ Comunidad Autónoma</h4>
-                        </div>
-                        <div class="drop-zone" data-level="Municipio">
-                            <h4>🏡 Municipio</h4>
-                        </div>
-                        <div class="drop-zone" data-level="Centro">
-                            <h4>🏫 Centro</h4>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn" onclick="checkDragDropAnswers()">Comprobar respuestas</button>
-                <div class="feedback" id="dragDropFeedback"></div>
-            </div>
-
-            <!-- Slide 9: What is Educational Policy -->
-            <div class="slide" id="slide9">
-                <h2>⚙️ ¿Qué es la Política Educativa?</h2>
-                <div style="background: var(--color-bg-light); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
-                    <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Poder Ejecutivo (Gobierno)</h3>
-                    <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
-                        <div style="background: white; padding: 1rem; border-radius: 8px; min-width: 120px;">
-                            <h4>🏛️ Legislativo</h4>
-                        </div>
-                        <div style="background: var(--color-primary); color: white; padding: 1rem; border-radius: 8px; min-width: 120px;">
-                            <h4>⚙️ Ejecutivo</h4>
-                        </div>
-                        <div style="background: white; padding: 1rem; border-radius: 8px; min-width: 120px;">
-                            <h4>⚖️ Judicial</h4>
-                        </div>
-                    </div>
-                    <p style="font-size: 1.1rem; text-align: center;">El <strong>Poder Ejecutivo (Gobierno)</strong> dirige la política educativa mediante leyes y reglamentos que concretan el derecho a la educación.</p>
-                </div>
-            </div>
-
-            <!-- Slide 10: LOMLOE Principles -->
-            <div class="slide" id="slide10">
-                <h2>🌈 Principios de la LOE/LOMLOE</h2>
-                <div class="word-cloud">
-                    <div class="word-item">Calidad educativa</div>
-                    <div class="word-item">Equidad e inclusión</div>
-                    <div class="word-item">Cooperación</div>
-                    <div class="word-item">Libertad de enseñanza</div>
-                    <div class="word-item">Transparencia</div>
-                    <div class="word-item">Rendición de cuentas</div>
-                    <div class="word-item">Igualdad de género</div>
-                    <div class="word-item">Derechos de la infancia</div>
-                    <div class="word-item">Desarrollo sostenible</div>
-                    <div class="word-item">Competencia digital</div>
-                </div>
-            </div>
-
-            <!-- Slide 11: What is Educational Administration -->
-            <div class="slide" id="slide11">
-                <h2>🧠 ¿Qué es la Administración Educativa?</h2>
-                <div style="display: flex; justify-content: center; align-items: center; margin: 2rem 0; flex-wrap: wrap; gap: 2rem;">
-                    <div style="font-size: 4rem;">⚙️</div>
-                    <div style="font-size: 2rem; color: var(--color-primary);">+</div>
-                    <div style="font-size: 4rem;">👥</div>
-                    <div style="font-size: 2rem; color: var(--color-primary);">+</div>
-                    <div style="font-size: 4rem;">📚</div>
-                </div>
-                <div style="background: var(--color-bg-light); padding: 2rem; border-radius: 12px; margin: 2rem 0; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    <p style="font-size: 1.3rem; font-weight: 600;">Es el conjunto de <span style="color: var(--color-primary);">instituciones</span> y <span style="color: var(--color-primary);">recursos</span> que ejecutan la política educativa.</p>
-                </div>
-            </div>
-
-            <!-- Slide 12: Administrative Levels Pyramid -->
-            <div class="slide" id="slide12">
-                <h2>🔺 Niveles de la Administración Educativa</h2>
-                <div class="pyramid">
-                    <div class="pyramid-level" onclick="showLevelDetails('estado')">🏛️ Estado (MEFPD)</div>
-                    <div class="pyramid-level" onclick="showLevelDetails('ccaa')">🏞️ Comunidades Autónomas</div>
-                    <div class="pyramid-level" onclick="showLevelDetails('municipio')">🏡 Municipios</div>
-                    <div class="pyramid-level" onclick="showLevelDetails('centro')">🏫 Centros educativos</div>
-                </div>
-                <div class="feedback" id="levelDetails"></div>
-            </div>
-
-            <!-- Slide 13: State Level -->
-            <div class="slide" id="slide13">
-                <h2>🏢 Nivel Estatal</h2>
-                <div class="level-card estado" style="max-width: 600px; margin: 2rem auto;">
-                    <div class="level-icon">🏛️</div>
-                    <h3>Ministerio de Educación, FP y Deportes</h3>
-                    <ul class="level-functions">
-                        <li>✓ Fijar enseñanzas mínimas (60% currículo / 50% con lengua cooficial)</li>
-                        <li>✓ Homologar títulos académicos y profesionales</li>
-                        <li>✓ Garantizar igualdad en todo el territorio nacional</li>
-                        <li>✓ Regulación básica del sistema educativo</li>
-                        <li>✓ Alta Inspección educativa</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Slide 14: Autonomous Level -->
-            <div class="slide" id="slide14">
-                <h2>🏞️ Nivel Autonómico</h2>
-                <div class="level-card ccaa" style="max-width: 600px; margin: 2rem auto;">
-                    <div class="level-icon">🏞️</div>
-                    <h3>Consejerías de Educación autonómicas</h3>
-                    <ul class="level-functions">
-                        <li>✓ Desarrollo curricular (40% / 50% del currículo)</li>
-                        <li>✓ Gestión de centros educativos y profesorado</li>
-                        <li>✓ Inspección educativa técnica</li>
-                        <li>✓ Conciertos educativos y gestión de becas</li>
-                        <li>✓ Expedición de títulos académicos</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Slide 15: Local Level -->
-            <div class="slide" id="slide15">
-                <h2>🏡 Nivel Local</h2>
-                <div class="level-card municipio" style="max-width: 600px; margin: 2rem auto;">
-                    <div class="level-icon">🏡</div>
-                    <h3>Ayuntamientos y corporaciones locales</h3>
-                    <ul class="level-functions">
-                        <li>✓ Mantenimiento y conservación de centros públicos</li>
-                        <li>✓ Control del absentismo escolar</li>
-                        <li>✓ Organización de actividades extraescolares</li>
-                        <li>✓ Vigilancia del cumplimiento de escolaridad obligatoria</li>
-                        <li>✓ Cooperación en planificación educativa local</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Slide 16: Centers Level -->
-            <div class="slide" id="slide16">
-                <h2>🏫 Nivel de los Centros</h2>
-                <div class="level-card centro" style="max-width: 600px; margin: 2rem auto;">
-                    <div class="level-icon">🏫</div>
-                    <h3>Colegios, institutos y centros de enseñanza</h3>
-                    <ul class="level-functions">
-                        <li>✓ Autonomía pedagógica y organizativa</li>
-                        <li>✓ Elaboración del PEC, PGA y RRI</li>
-                        <li>✓ Implementación y concreción del currículo</li>
-                        <li>✓ Gestión del día a día del centro educativo</li>
-                        <li>✓ Participación de la comunidad educativa</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Slide 17: Competence Distribution -->
-            <div class="slide" id="slide17">
-                <h2>⚖️ Reparto Competencial</h2>
-                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 3rem 0; flex-wrap: wrap;">
-                    <div style="background: var(--color-error); color: white; padding: 2rem; border-radius: 12px; text-align: center; min-width: 200px;">
-                        <h3>60%</h3>
-                        <p>Estado</p>
-                        <small>(50% con lengua cooficial)</small>
-                    </div>
-                    <div style="background: var(--color-warning); color: white; padding: 2rem; border-radius: 12px; text-align: center; min-width: 200px;">
-                        <h3>40%</h3>
-                        <p>CCAA</p>
-                        <small>(50% con lengua cooficial)</small>
-                    </div>
-                </div>
-                <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">El Estado fija el <strong>60% del currículo</strong> (50% en CCAA con lengua cooficial); las CCAA desarrollan el resto.</p>
-            </div>
-
-            <!-- Slide 18: Practical Example -->
-            <div class="slide" id="slide18">
-                <h2>🎨 Ejemplo Práctico: Educación Artística</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; max-width: 800px; margin-left: auto; margin-right: auto;">
-                    <div style="background: var(--color-primary); color: white; padding: 2rem; border-radius: 12px;">
-                        <h3>🏛️ Estado establece:</h3>
-                        <ul style="text-align: left; margin-top: 1rem;">
-                            <li>La materia existe</li>
-                            <li>Objetivos generales</li>
-                            <li>Competencias básicas</li>
-                            <li>Criterios de evaluación mínimos</li>
-                        </ul>
-                    </div>
-                    <div style="background: var(--color-success); color: white; padding: 2rem; border-radius: 12px;">
-                        <h3>🏞️ CCAA define:</h3>
-                        <ul style="text-align: left; margin-top: 1rem;">
-                            <li>Horas semanales</li>
-                            <li>Metodología específica</li>
-                            <li>Contenidos culturales propios</li>
-                            <li>Criterios de evaluación detallados</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 19: Coordination Bodies -->
-            <div class="slide" id="slide19">
-                <h2>🤝 Órganos de Coordinación</h2>
-                <div class="coordination-table">
-                    <div class="coordination-card">
-                        <span class="coordination-icon">🏛️</span>
-                        <h3>Consejo Escolar del Estado</h3>
-                        <p><strong>Función:</strong> Participación y asesoramiento de los sectores educativos al Gobierno</p>
-                        <p><strong>Composición:</strong> 107 miembros: profesores, padres, alumnos, administración, personalidades de prestigio</p>
-                    </div>
-                    <div class="coordination-card">
-                        <span class="coordination-icon">🗣️</span>
-                        <h3>Conferencia Sectorial</h3>
-                        <p><strong>Función:</strong> Coordinación y cooperación entre el Estado y las CCAA</p>
-                        <p><strong>Composición:</strong> Ministro de Educación y Consejeros de Educación de las CCAA</p>
-                    </div>
-                    <div class="coordination-card">
-                        <span class="coordination-icon">🔍</span>
-                        <h3>Alta Inspección</h3>
-                        <p><strong>Función:</strong> Control y garantía de unidad del sistema educativo español</p>
-                        <p><strong>Composición:</strong> Inspectores estatales del Ministerio de Educación</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 20: Visual Summary -->
-            <div class="slide" id="slide20">
-                <h2>🧾 Resumen Visual</h2>
-                <div class="concept-map">
-                    <div class="concept-node">Política</div>
-                    <div class="concept-arrow">→</div>
-                    <div class="concept-node">Administración</div>
-                    <div class="concept-arrow">→</div>
-                    <div class="concept-node">Coordinación</div>
-                    <div class="concept-arrow">→</div>
-                    <div class="concept-node">Centros</div>
-                </div>
-            </div>
-
-            <!-- Slide 21: Guided Debate -->
-            <div class="slide" id="slide21">
-                <h2>💬 Debate Guiado</h2>
-                <div style="background: var(--color-bg-light); padding: 2rem; border-radius: 12px; margin: 2rem 0; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto;">
-                    <h3 style="color: var(--color-primary); margin-bottom: 1.5rem;">Preguntas para reflexionar:</h3>
-                    <div style="margin-bottom: 1.5rem;">
-                        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">❓ ¿Qué órganos educativos existen en vuestra CCAA?</p>
-                        <p style="color: var(--color-text-light);">Pensad en vuestra Consejería de Educación, inspección educativa, etc.</p>
-                    </div>
-                    <div>
-                        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">❓ ¿Os parece eficaz la descentralización del sistema?</p>
-                        <p style="color: var(--color-text-light);">Ventajas e inconvenientes de que las CCAA gestionen la educación.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 22: Quick Case -->
-            <div class="slide" id="slide22">
-                <h2>🧮 Caso Rápido</h2>
-                <div style="background: var(--color-bg-light); padding: 2rem; border-radius: 12px; margin: 2rem 0; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Situación:</h3>
-                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">Un colegio quiere implantar un <strong>proyecto bilingüe</strong>.</p>
-                    <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Pregunta:</h3>
-                    <p style="font-size: 1.2rem; font-weight: 600;">¿Qué niveles administrativos deben intervenir?</p>
-                </div>
-                <button class="btn" onclick="showCaseAnswer()">Ver respuesta</button>
-                <div class="feedback" id="caseAnswer" style="text-align: left; max-width: 600px; margin: 1rem auto 0;"></div>
-            </div>
-
-            <!-- Slide 23: Interactive Quiz -->
-            <div class="slide" id="slide23">
-                <h2>🎯 Mini Test Interactivo</h2>
-                <div class="quiz-container">
-                    <div id="quizQuestion" class="quiz-question"></div>
-                    <div id="quizOptions" class="quiz-options"></div>
-                    <button class="btn" id="submitAnswer" onclick="submitQuizAnswer()" style="display: none;">Enviar respuesta</button>
-                    <button class="btn" id="nextQuestion" onclick="nextQuizQuestion()" style="display: none;">Siguiente pregunta</button>
-                    <div id="quizFeedback" class="quiz-feedback" style="display: none;"></div>
-                    <div id="quizScore" class="score-display" style="display: none;"></div>
-                </div>
-            </div>
-
-            <!-- Slide 24: Final Concept Map -->
-            <div class="slide" id="slide24">
-                <h2>🗺️ Mapa Conceptual Final</h2>
-                <div class="concept-map">
-                    <div class="concept-node" style="background: var(--color-primary);">Política</div>
-                    <div class="concept-node" style="background: var(--color-success);">Administración</div>
-                    <div class="concept-node" style="background: var(--color-warning);">Coordinación</div>
-                    <div class="concept-node" style="background: var(--color-error);">Centros</div>
-                </div>
-                <p style="font-size: 1.1rem; margin-top: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Los cuatro pilares del sistema educativo español trabajan de forma coordinada para garantizar el derecho a la educación.</p>
-            </div>
-
-            <!-- Slide 25: Resources -->
-            <div class="slide" id="slide25">
-                <h2>📚 Recursos Recomendados</h2>
-                <div class="resources-grid">
-                    <a href="https://educagob.educacionfpydeportes.gob.es/comunidad-educativa/administraciones-educativas.html" target="_blank" class="resource-card">
-                        <h3>🌐 Educagob</h3>
-                        <p><strong>Administraciones educativas</strong></p>
-                        <p>Portal oficial con información sobre la estructura administrativa educativa</p>
-                    </a>
-                    <a href="https://www.educacionyfp.gob.es/mc/cee/portada.html" target="_blank" class="resource-card">
-                        <h3>🏛️ Consejo Escolar</h3>
-                        <p><strong>Consejo Escolar del Estado</strong></p>
-                        <p>Órgano de participación de la comunidad educativa</p>
-                    </a>
-                    <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2020-17264" target="_blank" class="resource-card">
-                        <h3>📖 Legislación</h3>
-                        <p><strong>LOE/LOMLOE vigente</strong></p>
-                        <p>Texto completo de la legislación educativa actual</p>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Slide 26: Closure -->
-            <div class="slide" id="slide26">
-                <div style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: white; padding: 3rem; border-radius: 20px; margin: 2rem 0;">
-                    <div style="font-size: 4rem; margin-bottom: 2rem;">❓</div>
-                    <h2 style="margin-bottom: 2rem;">🙋‍♂️ Cierre del Tema</h2>
-                    <p style="font-size: 1.3rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                        "Conocer la estructura administrativa nos permite entender cómo se toman las decisiones educativas y cómo afectan a nuestra práctica docente."
-                    </p>
-                    <button class="btn btn-secondary" style="background: white; color: var(--color-primary); font-size: 1.2rem; padding: 1rem 2rem; animation: pulse 2s infinite;">¿Preguntas? ¿Dudas?</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="navigation">
-            <button class="nav-button" id="prevBtn" onclick="previousSlide()" disabled>← Anterior</button>
-            <div class="slide-counter">
-                <span id="currentSlide">1</span> / <span id="totalSlides">26</span>
-            </div>
-            <button class="nav-button" id="nextBtn" onclick="nextSlide()">Siguiente →</button>
-        </div>
-    </div>
-
-    <script>
+<div class="activity-layout"><div class="activity-main"><h2>🧩 Actividad Grupal</h2><h3>Clasifica estos aspectos según su nivel de decisión:</h3><div class="drag-drop-container">
+<div class="draggable-items">
+<h4>Aspectos a clasificar:</h4>
+<div class="draggable-item" data-correct="Estado" draggable="true">Currículo básico (60%)</div>
+<div class="draggable-item" data-correct="Estado" draggable="true">Homologación de títulos</div>
+<div class="draggable-item" data-correct="CCAA" draggable="true">Inspección educativa técnica</div>
+<div class="draggable-item" data-correct="CCAA" draggable="true">Desarrollo curricular (40%)</div>
+<div class="draggable-item" data-correct="Municipio" draggable="true">Mantenimiento de edificios escolares</div>
+<div class="draggable-item" data-correct="Municipio" draggable="true">Actividades extraescolares</div>
+<div class="draggable-item" data-correct="Centro" draggable="true">Proyecto Educativo del Centro</div>
+<div class="draggable-item" data-correct="Estado" draggable="true">Becas y ayudas al estudio</div>
+</div>
+<div class="drop-zones">
+<div class="drop-zone" data-level="Estado">
+<h4>🏛️ Estado</h4>
+</div>
+<div class="drop-zone" data-level="CCAA">
+<h4>🏞️ Comunidad Autónoma</h4>
+</div>
+<div class="drop-zone" data-level="Municipio">
+<h4>🏡 Municipio</h4>
+</div>
+<div class="drop-zone" data-level="Centro">
+<h4>🏫 Centro</h4>
+</div>
+</div>
+</div></div><aside class="activity-aside"><button class="btn" onclick="checkDragDropAnswers()">Comprobar respuestas</button><div class="feedback" id="dragDropFeedback"></div><p>Consejo: ordena los elementos y pulsa «Comprobar respuestas».</p></aside></div></div><div aria-hidden="true" aria-roledescription="diapositiva" class="slide" id="slide22" role="group" tabindex="-1">
+<h2>🧮 Caso Rápido</h2>
+<div style="background: var(--color-bg-light); padding: 2rem; border-radius: 12px; margin: 2rem 0; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
+<h3 style="color: var(--color-primary); margin-bottom: 1rem;">Situación:</h3>
+<p style="font-size: 1.2rem; margin-bottom: 1.5rem;">Un colegio quiere implantar un <strong>proyecto bilingüe</strong>.</p>
+<h3 style="color: var(--color-primary); margin-bottom: 1rem;">Pregunta:</h3>
+<p style="font-size: 1.2rem; font-weight: 600;">¿Qué niveles administrativos deben intervenir?</p>
+</div>
+<button class="btn" onclick="showCaseAnswer()">Ver respuesta</button>
+<div class="feedback" id="caseAnswer" style="text-align: left; max-width: 600px; margin: 1rem auto 0;"></div>
+</div><div aria-hidden="true" aria-roledescription="diapositiva" class="slide" id="slide23" role="group" tabindex="-1">
+<h2>🎯 Mini Test Interactivo</h2>
+<div class="quiz-container">
+<div class="quiz-question" id="quizQuestion"></div>
+<div class="quiz-options" id="quizOptions"></div>
+<button class="btn" id="submitAnswer" onclick="submitQuizAnswer()" style="display: none;">Enviar respuesta</button>
+<button class="btn" id="nextQuestion" onclick="nextQuizQuestion()" style="display: none;">Siguiente pregunta</button>
+<div class="quiz-feedback" id="quizFeedback" style="display: none;"></div>
+<div class="score-display" id="quizScore" style="display: none;"></div>
+</div>
+</div></div><div class="navigation" id="navBar"><button class="nav-button" id="prevBtn">← Anterior</button><div><span id="currentSlide">1</span> / <span id="totalSlides">4</span> <span>  Atajos: </span><span class="kbd">←</span><span class="kbd">→</span>, <span class="kbd">Espacio</span>, <span class="kbd">Inicio/Fin</span></div><button class="nav-button" id="nextBtn">Siguiente →</button></div></div><script>
         // Global variables
         let currentSlideIndex = 1;
         const totalSlides = 26;
@@ -1403,7 +1056,46 @@
         }
 
 
-    </script>
-</body>
-</html>
-<!-- rebuild -->
+    </script><script>
+(function(){
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const total = slides.length;
+    const progressFill = document.getElementById('progressFill');
+    const currentSpan = document.getElementById('currentSlide');
+    const totalSpan = document.getElementById('totalSlides');
+    totalSpan.textContent = total;
+
+    let current = parseHash() || 1;
+    show(current, false);
+
+    document.getElementById('prevBtn').addEventListener('click', ()=>show(current-1));
+    document.getElementById('nextBtn').addEventListener('click', ()=>show(current+1));
+    document.addEventListener('keydown', (e)=>{
+        if(['ArrowRight','PageDown',' '].includes(e.key)){ e.preventDefault(); show(current+1); }
+        if(['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); show(current-1); }
+        if(e.key==='Home'){ e.preventDefault(); show(1); }
+        if(e.key==='End'){ e.preventDefault(); show(total); }
+    });
+    window.addEventListener('hashchange', ()=>{
+        const idx = parseHash(); if(idx) show(idx);
+    });
+
+    function show(n, focus=true){
+        n = Math.max(1, Math.min(total, n));
+        slides.forEach((s,i)=> s.setAttribute('aria-hidden', (i+1)===n ? 'false' : 'true'));
+        const el = slides[n-1];
+        if (focus) el.focus({preventScroll:false});
+        current = n;
+        currentSpan.textContent = String(current);
+        document.getElementById('prevBtn').disabled = current===1;
+        document.getElementById('nextBtn').disabled = current===total;
+        progressFill.style.width = (current/total*100) + '%';
+        setHash(n);
+    }
+    function parseHash(){
+        const m = (location.hash||'').match(/slide(\d+)/i);
+        return m ? parseInt(m[1],10) : null;
+    }
+    function setHash(n){ history.replaceState(null,'','#slide'+n); }
+})();
+</script></body></html>
